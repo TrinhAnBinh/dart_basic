@@ -52,4 +52,20 @@ main(List<String> arguments) {
   // (==, !=, >,<, >=, <=)
   // print(true == false);
   // print( 4>= 2);
+
+  // Control flow and statement
+  // as :
+  // is : is
+  // is! : is not
+
+  int age = 27;
+  print(age is! int); // check the type of variable
+  if (age == 27) {
+    print('Age is 27');
+  } else {
+    print('else is running');
+    print('Age is not 27');
+  }
+
+
 }
