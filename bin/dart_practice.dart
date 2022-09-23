@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:dart_practice/dart_practice.dart' as dart_practice;
 
 main(List<String> arguments) {
@@ -107,18 +109,89 @@ main(List<String> arguments) {
   // } while(age < 27) ;
 
   // switch case
-  var age = 27;
-  switch (age) {
-    case 19:
-      print(19);
-      break;
-    case 20:
-      print(20);
-      break;
-    case 21:
-      print(21);
-      break;
-    default:
-      print(age);
+  // var age = 27;
+  // switch (age) {
+  //   case 19:
+  //     print(19);
+  //     break;
+  //   case 20:
+  //     print(20);
+  //     break;
+  //   case 21:
+  //     print(21);
+  //     break;
+  //   default:
+  //     print(age);
+  // }
+
+  // function
+  // doSomeThing();
+
+  // var functionName = showName();
+  // print(functionName);
+  // print(showAge());
+  // var name = getName(28);
+  // print(name);
+  // var yourName = showYourName('Binh Trinh An');
+  // print(yourName);
+  // optional argument
+  // var statement = showOptionalName('Binh', 'Trinh An');
+  // print(statement);
+  var statement = sayHello('Binh',lastName: 'Trinh',age: 13);
+  print(statement);
+
+}
+
+// Function
+doSomeThing() {
+  print('Hello Word do something');
+  sayMyName();
+}
+
+sayMyName() {
+  print('Trinh An Binh');
+}
+
+
+String showName() {
+  return 'this is show name';
+}
+
+int showAge() {
+  return 27;
+}
+
+// arrow function
+String getName(age) => 'My name is Trinh $age';
+// {return someThing } the same =>
+
+// function with argument
+
+String showYourName(String name) {
+  return('Hello my name is $name');
+}
+
+// function with optional argument- co hay khong co khong quan tron
+
+String showOptionalName(String name, String lastname, [var age]) {
+
+  var statement =  "Hello $name, $lastname, $age";
+  if (age == null) {
+    statement = 'Hello $name, $lastname';
   }
+  return statement;
+}
+// Với fucntion co required param thì phải pass cái tên của nó vào,
+// Nhưng argument không requirement thì ko cần pass tên
+// ví dụ muốn call function phía dưới
+// sayHello('name', lastName: 'lastName',age: 'age');
+
+String sayHello(String name,{required String lastName, int? age}) {
+  var statement = '$name $lastName' ;
+  // print(age);
+  if(age != null) {
+    // statement = '$statement $age';
+    statement += ' hehe ' + '$age';
+  }
+  return statement;
 }
